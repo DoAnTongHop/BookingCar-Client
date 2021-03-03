@@ -1,0 +1,8 @@
+redux/actions
+All the action files which are using around redux goes here.
+
+redux/reducers
+All the reducers which are using around redux goes here.
+
+redux/store
+You can put your store inside this redux store folder.
