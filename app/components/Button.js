@@ -4,7 +4,7 @@ import {
   StyleSheet, TouchableOpacity,
 } from 'react-native';
 
-import Colors from '../Theme/Color';
+import Colors from '../theme/Color';
 import Text from '../components/Text'
 
 export default function Button({ title, onPress }) {

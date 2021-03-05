@@ -4,7 +4,7 @@ import { useFormikContext, useFormik } from 'formik';
 
 import Text from '../Text';
 import ErrorMessage from './ErrorMessage';
-import Colors from '../../Theme/Color';
+import Colors from '../../theme/Color';
 
 export default function TextInputField({
   name, style, title, styleTitle, lengthValue, ...otherProps

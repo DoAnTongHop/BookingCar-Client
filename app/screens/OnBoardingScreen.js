@@ -8,13 +8,24 @@ import {
 } from 'react-native';
 import Onboarding from 'react-native-onboarding-swiper';
 import ButtonSmall from '../components/ButtonSmall';
+import Container from '../components/Container';
 import Colors from '../theme/Color';
 
 const { width, height } = Dimensions.get('screen')
 
-export default function OnBoardingScreen() {
+export default function OnBoardingScreen({ navigation }) {
+
+    const handleLogin = () => {
+        navigation.navigate('Login');
+    }
+
+    const handleRegister = () => {
+        navigation.navigate('Register');
+    }
+
+    handleRegister
     return (
-        <View style={styles.container}>
+        <Container style={styles.container}>
             <View style={styles.onboarding}>
                 <Onboarding
                     showNext={false}
@@ -49,11 +60,11 @@ export default function OnBoardingScreen() {
             </View>
             <View style={styles.containerButton}>
                 <View style={styles.flexButton}>
-                    <ButtonSmall title='Login' style={styles.button} styleTitle={styles.titleButton} />
-                    <ButtonSmall title='Register' style={styles.button} styleTitle={styles.titleButton} />
+                    <ButtonSmall title='Login' style={styles.button} styleTitle={styles.titleButton} onPress={() => handleLogin()} />
+                    <ButtonSmall title='Register' style={styles.button} styleTitle={styles.titleButton} onPress={() => handleRegister()} />
                 </View>
             </View>
-        </View>
+        </Container>
     )
 }
 

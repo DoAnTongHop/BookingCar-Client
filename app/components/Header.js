@@ -26,8 +26,8 @@ export default function Header({ title, onPress, colorImage = 'black' }) {
                     >
                         {
                             colorImage === 'black'
-                                ? <Image source={require('../Assest/Icons/back.png')} style={styles.back} />
-                                : <Image source={require('../Assest/Icons/back-white.png')} style={styles.back} />
+                                ? <Image source={require('../assets/icons/back.png')} style={styles.back} />
+                                : <Image source={require('../assets/icons/back-white.png')} style={styles.back} />
                         }
                     </TouchableHighlight>
                 ) : null
