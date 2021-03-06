@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, TextInput, View, Animated } from 'react-native';
 import { useFormikContext, useFormik } from 'formik';
-import { useTranslation } from "react-i18next";
 
 import Text from '../Text';
 import ErrorMessage from './ErrorMessage';
 import Colors from '../../theme/Color';
-import useTranslateFormErrors from '../../hook/useTranslateFormErrors';
 
 export default function TextInputField({
   name, style, title, styleTitle, lengthValue, ...otherProps
@@ -33,7 +31,6 @@ export default function TextInputField({
     top: !isFocus ? 14 : 2,
     fontSize: !isFocus ? 20 : 14,
   }
-  const { t, i18n } = useTranslation();
 
   return (
     <>
