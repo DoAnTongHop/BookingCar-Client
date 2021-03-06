@@ -5,6 +5,8 @@ import {
 import OnBoardingScreen from './app/screens/OnBoardingScreen';
 import Application from './app/navigation/Application';
 
+import './app/translation';
+
 
 const App = () => {
   return (

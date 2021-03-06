@@ -1,19 +1,22 @@
 import React from 'react'
 import {
     StyleSheet,
-    Text,
     View,
     Image,
     Dimensions
 } from 'react-native';
 import Onboarding from 'react-native-onboarding-swiper';
+import { useTranslation } from 'react-i18next';
+
 import ButtonSmall from '../components/ButtonSmall';
 import Container from '../components/Container';
 import Colors from '../theme/Color';
+import Text from '../components/Text';
 
 const { width, height } = Dimensions.get('screen')
 
 export default function OnBoardingScreen({ navigation }) {
+    const { t, i18n } = useTranslation();
 
     const handleLogin = () => {
         navigation.navigate('Login');
@@ -40,28 +43,28 @@ export default function OnBoardingScreen({ navigation }) {
                         {
                             backgroundColor: '#fff',
                             image: <Image source={require('../assets/illustration/illustration2.jpg')} style={{ width: 250, height: 200 }} />,
-                            title: 'Quality',
-                            subtitle: 'Vehicle quality is at its best and comfortable for guests',
+                            title: t('quality'),
+                            subtitle: t('contentQuality'),
                         },
                         {
                             backgroundColor: '#fff',
                             image: <Image source={require('../assets/illustration/illustration1.jpg')} style={{ width: 250, height: 200 }} />,
-                            title: 'Everywhere',
-                            subtitle: 'Appears in all provinces of the country',
+                            title: t('everywhere'),
+                            subtitle: t('contentEverywhere'),
                         },
                         {
                             backgroundColor: '#fff',
                             image: <Image source={require('../assets/illustration/illustration3.jpg')} style={{ width: 250, height: 200 }} />,
-                            title: 'Book quickly',
-                            subtitle: 'The process of buying tickets is fast and convenient for customers',
+                            title: t('bookQuickly'),
+                            subtitle: t('contentbookQuickly'),
                         },
                     ]}
                 />
             </View>
             <View style={styles.containerButton}>
                 <View style={styles.flexButton}>
-                    <ButtonSmall title='Login' style={styles.button} styleTitle={styles.titleButton} onPress={() => handleLogin()} />
-                    <ButtonSmall title='Register' style={styles.button} styleTitle={styles.titleButton} onPress={() => handleRegister()} />
+                    <ButtonSmall title={t('buttonLoginOnBoard')} style={styles.button} styleTitle={styles.titleButton} onPress={() => handleLogin()} />
+                    <ButtonSmall title={t('buttonRegisterOnBoard')} style={styles.button} styleTitle={styles.titleButton} onPress={() => handleRegister()} />
                 </View>
             </View>
         </Container>
@@ -82,13 +85,13 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.button,
     },
     titleButton: {
-        fontWeight: 'bold'
+        fontWeight: 'bold',
     },
     flexButton: {
         flexDirection: 'row',
         justifyContent: 'space-around'
     },
     onboarding: {
-        flex: 3
+        flex: 3,
     },
 })

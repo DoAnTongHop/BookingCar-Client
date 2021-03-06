@@ -3,6 +3,7 @@ import {
     StyleSheet, View, Image, Dimensions,
 } from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
+import { useTranslation } from 'react-i18next';
 import * as Yup from 'yup';
 
 import Header from '../../components/Header';
@@ -16,13 +17,14 @@ import Container from '../../components/Container';
 
 const { width } = Dimensions.get('screen');
 
-const LoginSchema = Yup.object().shape({
-    email: Yup.string().email().required().label('Email'),
-    password: Yup.string().required().label('Password').min(6).max(50)
-})
-
-export default function LoginScreen() {
+export default function LoginScreen({ navigation }) {
     const [toggleCheckBox, setToggleCheckBox] = useState(false);
+    const { t, i18n } = useTranslation();
+
+    const LoginSchema = Yup.object().shape({
+        phone: Yup.number().required(t('phoneRequired')).label(t('phone')),
+        password: Yup.string().required(t('passwordRequired')).label(t('password')).min(6, t('passwordLength')).max(50, t('passwordLength'))
+    })
     const handleMail = () => alert('handleMail');
     const handleFacebook = () => alert('handleFacebook');
     return (
@@ -32,34 +34,35 @@ export default function LoginScreen() {
             // colorImage='black'
             />
             <View style={styles.body}>
-                <Text style={styles.welcome} >welcomelogin</Text>
-                <Text style={styles.normalText} >subTextLogin
+                <Text style={styles.welcome} >{t('welcomelogin')}</Text>
+                <Text style={styles.normalText} >{t('subTextLogin')}
                     <Text
                         style={styles.textSignIn}
                         onPress={() => navigation.navigate('Register')}>
-                        signup
+                        {t('signup')}
                     </Text>
                 </Text>
 
                 <View >
                     <FormField
-                        initialValues={{ email: '', password: '' }}
-                        onSubmit={(value) => alert(`${value.email}++${value.password}`)}
+                        initialValues={{ phone: '', password: '' }}
+                        onSubmit={(value) => alert(`${value.phone}++${value.password}`)}
                         validationSchema={LoginSchema}
                     >
                         <TextInputField
                             autoCapitalize='none'
                             autoFocus
                             // styleTitle={styles.textSubTitle}
-                            name='email'
-                            title='email'
+                            name='phone'
+                            keyboardType='numeric'
+                            title={t('phone')}
                         />
                         <TextInputField
                             autoCapitalize='none'
                             isPassword
                             // styleTitle={styles.textSubTitle}
                             name='password'
-                            title='password'
+                            title={t('password')}
                         />
 
                         <CheckBox
@@ -70,7 +73,7 @@ export default function LoginScreen() {
                         />
                         <View style={styles.containerButton}>
                             <ButtonSubmit
-                                title='buttonLogin'
+                                title={t('buttonLogin')}
                                 style={styles.button}
                             />
                         </View>
