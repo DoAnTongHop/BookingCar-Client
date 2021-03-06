@@ -23,7 +23,7 @@ export default function RegisterScreen({ navigation }) {
         phone: Yup.number().required(t('phoneRequired')).label(t('phone')),
         password: Yup.string().required(t('passwordRequired')).label(t('password')).min(6, t('passwordLength')).max(50, t('passwordLength')),
         username: Yup.string().required(t('passwordRequired')).label(t('username')).min(1, t('usernameLength')).max(50, t('usernameLength')),
-        email: Yup.string().email(t('isEmail')).required(t('passwordRequired')).label(t('email')),
+        email: Yup.string().email(t('isEmail')).required(t('emailRequired')).label(t('email')),
     })
     const handleBack = () => navigation.goBack();
     return (
