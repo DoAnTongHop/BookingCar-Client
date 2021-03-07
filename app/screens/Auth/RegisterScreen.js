@@ -106,7 +106,8 @@ const styles = StyleSheet.create({
     },
     body: {
         marginTop: 20,
-    }, welcome: {
+    },
+    welcome: {
         fontWeight: 'bold',
         fontSize: 25,
     },

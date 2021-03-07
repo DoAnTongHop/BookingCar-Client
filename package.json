@@ -21,6 +21,7 @@
     "react": "16.13.1",
     "react-i18next": "^11.8.8",
     "react-native": "0.63.4",
+    "react-native-confirmation-code-field": "^6.5.1",
     "react-native-gesture-handler": "^1.10.3",
     "react-native-onboarding-swiper": "^1.1.4",
     "react-native-reanimated": "^2.0.0",

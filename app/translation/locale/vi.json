@@ -25,5 +25,10 @@
     "emailRequired": "Email là bắt buộc",
     "isEmail": "Phải nhập theo dạng email",
     "passwordRequired": "Mật khẩu là bắt buộc",
-    "passwordLength": "Mật khẩu phải từ 6-50 kí tự"
+    "passwordLength": "Mật khẩu phải từ 6-50 kí tự",
+    "titleVerify": "Xác thực",
+    "subTitleVerify": "Nhập code, chúng tôi đã gửi tới điện thoại của bạn",
+    "donthavecode": "Không nhận được code",
+    "resend": "GỬI LẠI",
+    "keepGoing": "Tiếp tục"
 }

@@ -1,6 +1,6 @@
 const Colors = {
   primary: '#FFFFFF',
-  gray: '#616161',
+  gray: '#7e7e7e',
   grayInput: 'lightgrey',
   black: '#000000',
   button: '#FFC33A',

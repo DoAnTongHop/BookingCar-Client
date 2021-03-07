@@ -25,5 +25,10 @@
     "emailRequired": "Email is required",
     "isEmail": "Should Email",
     "passwordRequired": "Password is required",
-    "passwordLength": "Password should to 6-50 characters"
+    "passwordLength": "Password should to 6-50 characters",
+    "titleVerify": "Verification",
+    "subTitleVerify": "Enter the code , we send to your phone please check and fill it",
+    "donthavecode": "Didn't receive the code",
+    "resend": "RESEND",
+    "keepGoing": "Keep going"
 }
