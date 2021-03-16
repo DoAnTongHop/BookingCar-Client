@@ -11,7 +11,7 @@ import './app/translation';
 
 const App = () => {
   return (
-    <VerifyScreen />
+    <Application />
   )
 };
 

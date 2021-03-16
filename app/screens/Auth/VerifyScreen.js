@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
     StyleSheet,
     View,
@@ -10,6 +10,7 @@ import {
     useClearByFocusCell,
 } from 'react-native-confirmation-code-field';
 import { useTranslation } from 'react-i18next';
+import auth from '@react-native-firebase/auth';
 
 import Container from '../../components/Container';
 import Header from '../../components/Header';
@@ -17,17 +18,41 @@ import Text from '../../components/Text';
 import Colors from '../../theme/Color';
 import Button from '../../components/Button';
 
-const CELL_COUNT = 4;
+const CELL_COUNT = 6;
 
-export default function VerifyScreen({ navigation }) {
+export default function VerifyScreen({ navigation, route }) {
     const { t } = useTranslation();
     const [value, setValue] = useState('');
+    const [confirm, setConfirm] = useState(null);
     const ref = useBlurOnFulfill({ value, cellCount: CELL_COUNT });
     const [props, getCellOnLayoutHandler] = useClearByFocusCell({
         value,
         setValue,
     });
+
+    useEffect(() => {
+        signInWithPhoneNumber(route?.params?.phoneNumber);
+    }, [])
+
+    async function signInWithPhoneNumber(phoneNumber) {
+        const confirmation = await auth().signInWithPhoneNumber(phoneNumber);
+        setConfirm(confirmation);
+    }
+
     const handleBack = () => navigation.goBack();
+
+    async function confirmCode() {
+        try {
+            const response = await confirm?.confirm(value);
+            console.log('Go on');
+            if (response) {
+                navigation.navigate('Login');
+            }
+        } catch (error) {
+            console.log('ERORR', error);
+        }
+    }
+
     return (
         <Container style={styles.container}>
             <Header
@@ -53,7 +78,6 @@ export default function VerifyScreen({ navigation }) {
                             key={index}
                             style={styles.borderText}>
                             <Text
-
                                 style={[styles.cell, isFocused && styles.focusCell]}
                                 onLayout={getCellOnLayoutHandler(index)}>
                                 {symbol || (isFocused ? <Cursor /> : null)}
@@ -66,7 +90,8 @@ export default function VerifyScreen({ navigation }) {
                     <Text>{t('donthavecode')}</Text>
                     <Text style={styles.textResend}>{t('resend')}</Text>
                 </View>
-                <Button title={t('keepGoing')} onPress={() => alert('Going')} />
+                {/* <Button title={t('keepGoing')} onPress={() => signInWithPhoneNumber('+84 769998692')} /> */}
+                <Button title={t('keepGoing')} onPress={() => confirmCode()} />
             </View>
         </Container>
     )
@@ -110,8 +135,8 @@ const styles = StyleSheet.create({
         marginTop: 20,
     },
     borderText: {
-        width: 60,
-        height: 60,
+        width: 40,
+        height: 40,
         borderWidth: 2,
         borderColor: Colors.grayInput,
         borderRadius: 10,

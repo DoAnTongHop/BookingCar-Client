@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1049341768138",
+    "project_id": "bookingcar-36013",
+    "storage_bucket": "bookingcar-36013.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1049341768138:android:7b14cff6aa38551814df33",
+        "android_client_info": {
+          "package_name": "com.bookingcar_client"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1049341768138-bteill1pfrnqq0hmgqqp9vung4m7p4rm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIxNc9q4TCiql09e-SuNcKslyqF8nb52A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1049341768138-bteill1pfrnqq0hmgqqp9vung4m7p4rm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

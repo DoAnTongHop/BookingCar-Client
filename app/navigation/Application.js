@@ -7,6 +7,7 @@ import { DarkTheme, LightTheme } from '../theme/ThemeNavigation'
 import LoginScreen from '../screens/Auth/LoginScreen';
 import RegisterScreen from '../screens/Auth/RegisterScreen';
 import OnBoardingScreen from '../screens/OnBoardingScreen';
+import VerifyScreen from '../screens/Auth/VerifyScreen';
 
 const Stack = createStackNavigator();
 
@@ -21,6 +22,7 @@ export default function Application() {
                 <Stack.Screen name='OnBoarding' component={OnBoardingScreen} />
                 <Stack.Screen name='Login' component={LoginScreen} />
                 <Stack.Screen name='Register' component={RegisterScreen} />
+                <Stack.Screen name='Verify' component={VerifyScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     )

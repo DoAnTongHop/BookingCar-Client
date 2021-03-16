@@ -1,5 +1,0 @@
-constants.js - where all required static values are stored.
-
-helper.js - for storing reusable logic.
-
-individual feature files — Each feature file contains api communication logic for a particular feature.

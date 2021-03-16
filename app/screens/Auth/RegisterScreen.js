@@ -26,6 +26,12 @@ export default function RegisterScreen({ navigation }) {
         email: Yup.string().email(t('isEmail')).required(t('emailRequired')).label(t('email')),
     })
     const handleBack = () => navigation.goBack();
+
+    function handleButtonCreateAccount(phoneNumber) {
+        navigation.navigate('Verify', { phoneNumber })
+    }
+
+
     return (
         <Container style={styles.container}>
             <KeyboardAvoidingView
@@ -50,7 +56,7 @@ export default function RegisterScreen({ navigation }) {
                     <View style={styles.input}>
                         <FormField
                             initialValues={{ phone: '', username: '', email: '', password: '' }}
-                            onSubmit={(value) => alert(`${value.email}++${value.password}`)}
+                            onSubmit={(value) => handleButtonCreateAccount('+84 ' + value.phone)}
                             validationSchema={RegisterSchema}
                         >
                             <TextInputField
